@@ -1,0 +1,38 @@
+Sub ToggleTextDisplayMode()
+    Dim c As Range
+    Dim mode As String
+    
+    On Error Resume Next
+    
+    For Each c In Selection
+        ' 現在の状態を確認
+        If Not c.ShrinkToFit And Not c.WrapText Then
+            ' 初期 → 縮小
+            c.ShrinkToFit = True
+            c.WrapText = False
+            mode = "縮小して全体を表示"
+            
+        ElseIf c.ShrinkToFit And Not c.WrapText Then
+            ' 縮小 → 折り返し
+            c.ShrinkToFit = False
+            c.WrapText = True
+            mode = "折り返して全体を表示"
+            
+        Else
+            ' 折り返し → 初期（どちらもOFF）
+            c.ShrinkToFit = False
+            c.WrapText = False
+            mode = "通常表示（初期状態）"
+        End If
+    Next c
+    
+    On Error GoTo 0
+    
+    ' ステータスバーに表示
+    Application.StatusBar = "セル表示モード：" & mode
+    Application.OnTime Now + TimeValue("00:00:03"), "ClearStatusBar"
+End Sub
+
+Sub ClearStatusBar()
+    Application.StatusBar = False
+End Sub
