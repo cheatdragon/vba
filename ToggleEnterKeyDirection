@@ -1,0 +1,11 @@
+Sub ToggleEnterKeyDirection()
+    If Application.MoveAfterReturnDirection = xlToRight Then
+        Application.MoveAfterReturnDirection = xlDown
+        MsgBox "Enterキー押下後の移動方向：下", vbInformation
+    Else
+        Application.MoveAfterReturnDirection = xlToRight
+        MsgBox "Enterキー押下後の移動方向：右", vbInformation
+    End If
+    Application.MoveAfterReturn = True
+End Sub
+
