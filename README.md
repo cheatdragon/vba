@@ -146,8 +146,8 @@ ToggleEnterKeyDirection	Ctrl + Shift + E
 これらのマクロは安全な操作のみを行いますが、
 　初めて使用する際は「マクロを有効にする」設定が必要です。
 
-Application.MoveAfterReturnDirection は Excel全体に影響 します。
-　切り替え後は他のブックでも同じ方向になります。
+Application.MoveAfterReturnDirection は Excel全体に影響します。
+切り替え後は他のブックでも同じ方向になります。
 
 Personal.xlsb はExcel起動時に自動で読み込まれます。
-　誤って削除しないようご注意ください。
+誤って削除しないようご注意ください。
